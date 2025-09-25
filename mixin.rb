@@ -35,3 +35,23 @@ module Animals
 end
 d = Animals::Dog.new
 d.speak
+
+# combine both mixin and namespacing 
+
+module Behaviour
+    module Flyable
+        def fly 
+            puts "#{self.class} is flying."
+        end
+    end
+end
+
+module Animal
+    class Bird 
+        include Behaviour::Flyable
+    end
+end
+
+parrot = Animal::Bird.new
+parrot.fly
+    
