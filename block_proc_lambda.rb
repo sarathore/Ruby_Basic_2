@@ -11,3 +11,15 @@ def greet
 end
 greet {puts "Nice to meet you."}
 
+
+
+# create proc 
+my_proc = Proc.new {|name| puts "Hello #{name}"}
+my_proc.call("Sanskar")
+
+#Passing proc to method
+def execute_proc(proc)
+    proc.call
+end
+say_hi = Proc.new{puts "Hi Team!"}
+execute_proc(say_hi)
