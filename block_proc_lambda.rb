@@ -23,3 +23,31 @@ def execute_proc(proc)
 end
 say_hi = Proc.new{puts "Hi Team!"}
 execute_proc(say_hi)
+
+
+#create lambda 
+my_lambda = -> (x,y) {puts "Sum: #{x+y}"}
+my_lambda.call(10,15)
+
+# call lambda with different arguments
+proc_example = Proc.new {|x, y| puts "Proc: #{x} #{y}"}
+lambda_example = -> (x,y) {puts "Lambda: #{x} #{y}"}
+
+proc_example.call(1)
+lambda_example.call(1)
+
+# Return Behaviour
+def test_proc
+    p = Proc.new {return "From Proc"}
+    p.call
+    return "After Proc"
+end
+
+def test_lambda
+    l = -> {return "From Lambda"}
+    l.call
+    return "After Lambda"
+end
+
+puts test_proc
+puts test_lambda
